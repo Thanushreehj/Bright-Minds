@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #ccc;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown li {
+    margin-bottom: 10px;
+}
+
+.dropdown a {
+    color: #fff;
+}
+
+.dropdown a:hover {
+    color: #ccc;
+}
+
+nav li:hover .dropdown {
+    display: block;
+}
+
+.disability-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.disability-buttons button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.disability-buttons button:hover {
+    background-color: #444;
+}
+
+.disability-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.disability-section img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.disability-text {
+    max-width: 600px;
+}
+
+#home {
+    padding: 2em;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    clear: both;
+}

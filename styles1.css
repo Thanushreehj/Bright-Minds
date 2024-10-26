@@ -1,9 +1,13 @@
+/* General Body Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
 }
 
+/* Header Styling */
 header {
     background-color: #333;
     color: #fff;
@@ -13,14 +17,14 @@ header {
 
 nav ul {
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
     position: relative;
 }
 
 nav ul li {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 nav a {
@@ -32,6 +36,7 @@ nav a:hover {
     color: #ccc;
 }
 
+/* Dropdown Styling */
 .dropdown {
     display: none;
     position: absolute;
@@ -57,45 +62,41 @@ nav li:hover .dropdown {
     display: block;
 }
 
-.disability-buttons {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.disability-buttons button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.disability-buttons button:hover {
-    background-color: #444;
-}
-
-.disability-section {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.disability-section img {
-    width: 100px;
-    height: auto;
-    margin-right: 20px;
-}
-
-.disability-text {
-    max-width: 600px;
-}
-
-#home {
+/* Disability Awareness Section Styling */
+#disability-awareness {
     padding: 2em;
     text-align: center;
+    color: #333;
 }
 
+#disability-awareness h2 {
+    color: #333;
+    font-size: 2em;
+}
+
+#disability-awareness h3 {
+    font-size: 1.5em;
+    color: #444;
+    margin-top: 1.5em;
+}
+
+#disability-awareness p {
+    font-size: 1em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Images Styling */
+#disability-awareness img {
+    max-width: 70%;
+    height: auto;
+    margin: 1em 0;
+    border-radius: 8px;
+}
+
+/* Footer Styling */
 footer {
     background-color: #333;
     color: #fff;

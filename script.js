@@ -1,3 +1,3 @@
-document.getElementById('get-started').onclick = function() {
-    alert('Get Started button clicked!');
-};
+document.getElementById('get-started').addEventListener('click', function() {
+    alert("Thank you for getting started with us!");
+});

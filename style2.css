@@ -1,0 +1,117 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px; /* Reduced padding */
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem; /* Reduced font size */
+    margin-bottom: 5px; /* Reduced margin */
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 10px; /* Reduced margin */
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem; /* Reduced font size */
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Course Sections */
+section {
+    padding: 30px;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* AI Course Section */
+#ai-course {
+    background-color: #e7f7fe;
+}
+
+#ai-course h2 {
+    color: #2a4d73;
+}
+
+/* Science Course Section */
+#science-course {
+    background-color: #f7f7e7;
+}
+
+#science-course h2 {
+    color: #4b7f37;
+}
+
+/* Course Lesson Lists */
+h3 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+/* Links */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+a:hover {
+    background-color: #45a049;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 10px 20px; /* Reduced padding */
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

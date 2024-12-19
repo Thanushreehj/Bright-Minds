@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Questionnaire</title>
+    <link rel="stylesheet" href="quizstyles1.css">
+</head>
+<body>
+    
+    <div class="container" style="background-image: url('https://t3.ftcdn.net/jpg/01/78/63/34/360_F_178633426_U5MZNWHx2Y35XmuNonNxnJKqJAqUmEy7.jpg');">
+        <h1 class="text-heading" id="text-heading-data" style="text-align: center;">Welcome to the Maths Test</h1>
+        <!-- <p>Answer the questions below. Click "Submit" to see your score.</p> -->
+         <!-- <div  style="display: flex;  justify-content: space-around;"> 
+        <p class="bg-test" style="color:rgb(235, 73, 40);border: 1px solid black;padding: 15px 24px; border-radius: 0.5rem;font-weight: 800;">English</p>
+           <p class="bg-test" style="color:blue;border:1px solid black;padding: 15px 24px; border-radius:0.5rem; font-weight:800;"> Maths</p>
+           <p class="bg-test"style="color:black;border:1px solid black; padding:15px 24px; border-radius:0.5rem; font-weight:800" >EVS</p>
+        </div> -->
+        <form id="questionnaire-form">
+            <div id="question-container"></div>
+            <button type="button" id="Submit-btn">Submit</button>
+        </form>
+        <h1 class="text-heading" id="text-heading" style="text-align: center; display: none;">Thank You</h1>
+        <p id="thank-you-message" style="display: none;">Your form is submitted Successfully!</p>
+        <p id="score-message" style="display: none;">Your score is: <span id="score"></span></p>
+    </div>
+    <script src="mathsQuestionsScript.js"></script>
+</body>
+</html>

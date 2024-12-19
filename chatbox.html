@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Chatbox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .chatbox {
+            width: 350px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .chatbox-header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+        }
+        .chatbox-messages {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        .chatbox-messages .message {
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 5px;
+            max-width: 80%;
+        }
+        .chatbox-messages .user {
+            align-self: flex-end;
+            background-color: #007bff;
+            color: white;
+        }
+        .chatbox-messages .bot {
+            align-self: flex-start;
+            background-color: #f1f1f1;
+            color: black;
+        }
+        .chatbox-input {
+            display: flex;
+            border-top: 1px solid #ccc;
+        }
+        .chatbox-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+        .chatbox-input button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        .chatbox-input button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbox">
+        <div class="chatbox-header">Chatbox</div>
+        <div class="chatbox-messages" id="messages"></div>
+        <div class="chatbox-input">
+            <input type="text" id="userInput" placeholder="Ask me about courses...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const messagesDiv = document.getElementById('messages');
+
+        function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const userMessage = userInput.value.trim();
+
+            if (userMessage === '') return;
+
+            // Display user message
+            addMessage(userMessage, 'user');
+
+            // Generate bot response
+            const botResponse = getBotResponse(userMessage);
+            addMessage(botResponse, 'bot');
+
+            // Clear input
+            userInput.value = '';
+        }
+
+        function addMessage(text, sender) {
+            const message = document.createElement('div');
+            message.className = `message ${sender}`;
+            message.textContent = text;
+            messagesDiv.appendChild(message);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function getBotResponse(input) {
+            input = input.toLowerCase();
+
+            if (input.includes('course') || input.includes('recommend')) {
+                return `Here are some recommended courses: \n1. Math: Strengthen foundational math skills with engaging activities and challenges. \n2. General Knowledge: Broaden horizons with interactive lessons and fun quizzes.`;
+            } else if (input.includes('math')) {
+                return `Math Course:\n- Introduction to Numbers and Counting\n- Basic Addition and Subtraction\n- Understanding Shapes and Patterns\n- Fun with Fractions and Decimals\n- Problem-Solving with Real-Life Scenarios\n- Multiplication and Division Basics\n- Exploring Measurements (Length, Weight, Time)\n- Fun Math Games to Enhance Learning.`;
+            } else if (input.includes('general knowledge')) {
+                return `General Knowledge Course:\n- Exploring the World Around Us\n- Fun Facts About Animals and Nature\n- Famous People and Their Achievements\n- Discovering Different Cultures and Traditions\n- Science in Everyday Life\n- Geography Basics: Continents, Oceans, and Countries\n- Historical Events and Inventions\n- Learning Through Quizzes and Interactive Activities.`;
+            } else if (input.includes('hello') || input.includes('hi')) {
+                return 'Hello! How can I help you today?';
+            } else {
+                return "I'm not sure about that. Can you ask about courses?";
+            }
+        }
+    </script>
+</body>
+</html>

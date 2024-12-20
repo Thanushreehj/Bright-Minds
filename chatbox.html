@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Chatbox</title>
+    <title>AI-Powered Chatbox</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
             margin: 0;
             padding: 0;
             display: flex;
@@ -15,72 +15,129 @@
             align-items: center;
             height: 100vh;
         }
+
         .chatbox {
-            width: 350px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background: #fff;
+            width: 400px;
+            height: 600px;
             display: flex;
             flex-direction: column;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
+
         .chatbox-header {
-            background-color: #007bff;
-            color: #fff;
+            background: #007bff;
+            color: #ffffff;
+            font-size: 20px;
             text-align: center;
-            padding: 10px;
-            font-size: 18px;
+            padding: 15px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
         .chatbox-messages {
             flex: 1;
-            padding: 10px;
+            padding: 15px;
             overflow-y: auto;
+            background: #f8f9fa;
         }
+
+        .chatbox-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chatbox-messages::-webkit-scrollbar-thumb {
+            background: #007bff;
+            border-radius: 4px;
+        }
+
         .chatbox-messages .message {
-            margin: 5px 0;
-            padding: 8px;
-            border-radius: 5px;
+            display: inline-block;
+            margin: 8px 0;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.4;
             max-width: 80%;
+            animation: fadeIn 0.3s ease-in-out;
         }
+
         .chatbox-messages .user {
             align-self: flex-end;
             background-color: #007bff;
-            color: white;
+            color: #ffffff;
         }
+
         .chatbox-messages .bot {
             align-self: flex-start;
-            background-color: #f1f1f1;
-            color: black;
+            background-color: #e2e6ea;
+            color: #333333;
         }
+
         .chatbox-input {
             display: flex;
-            border-top: 1px solid #ccc;
+            padding: 15px;
+            background: #ffffff;
+            border-top: 1px solid #dee2e6;
         }
+
         .chatbox-input input {
             flex: 1;
-            padding: 10px;
-            border: none;
-            outline: none;
-        }
-        .chatbox-input button {
-            background-color: #007bff;
-            color: white;
-            border: none;
             padding: 10px 15px;
-            cursor: pointer;
+            border: 1px solid #ced4da;
+            border-radius: 20px;
+            font-size: 14px;
+            outline: none;
+            transition: border 0.2s;
         }
+
+        .chatbox-input input:focus {
+            border-color: #007bff;
+        }
+
+        .chatbox-input button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
         .chatbox-input button:hover {
             background-color: #0056b3;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .chatbox {
+                width: 95%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="chatbox">
-        <div class="chatbox-header">Chatbox</div>
+    <div class="chatbox" role="region" aria-label="Chatbox">
+        <div class="chatbox-header">Bright Minds Assistant</div>
         <div class="chatbox-messages" id="messages"></div>
         <div class="chatbox-input">
-            <input type="text" id="userInput" placeholder="Ask me about courses...">
+            <label for="userInput" class="visually-hidden">Your message:</label>
+            <input type="text" id="userInput" placeholder="Ask me anything...">
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
@@ -92,7 +149,10 @@
             const userInput = document.getElementById('userInput');
             const userMessage = userInput.value.trim();
 
-            if (userMessage === '') return;
+            if (userMessage === '') {
+                alert("Please enter a message.");
+                return;
+            }
 
             // Display user message
             addMessage(userMessage, 'user');
@@ -117,15 +177,25 @@
             input = input.toLowerCase();
 
             if (input.includes('course') || input.includes('recommend')) {
-                return `Here are some recommended courses: \n1. Math: Strengthen foundational math skills with engaging activities and challenges. \n2. General Knowledge: Broaden horizons with interactive lessons and fun quizzes.`;
+                return `Here are some recommended courses:\n1. Math\n2. General Knowledge\n3. English.`;
             } else if (input.includes('math')) {
-                return `Math Course:\n- Introduction to Numbers and Counting\n- Basic Addition and Subtraction\n- Understanding Shapes and Patterns\n- Fun with Fractions and Decimals\n- Problem-Solving with Real-Life Scenarios\n- Multiplication and Division Basics\n- Exploring Measurements (Length, Weight, Time)\n- Fun Math Games to Enhance Learning.`;
+                return `Math Course:\n- Numbers and Counting\n- Addition & Subtraction\n- Real-life Problem Solving.`;
             } else if (input.includes('general knowledge')) {
-                return `General Knowledge Course:\n- Exploring the World Around Us\n- Fun Facts About Animals and Nature\n- Famous People and Their Achievements\n- Discovering Different Cultures and Traditions\n- Science in Everyday Life\n- Geography Basics: Continents, Oceans, and Countries\n- Historical Events and Inventions\n- Learning Through Quizzes and Interactive Activities.`;
+                return `General Knowledge Course:\n- Fun Facts\n- Science Basics\n- Exploring the World.`;
+            } else if (input.includes('english')) {
+                return `English Course:\n- Grammar Basics\n- Storytelling\n- Vocabulary Building.`;
             } else if (input.includes('hello') || input.includes('hi')) {
-                return 'Hello! How can I help you today?';
+                return 'Hello! I am Bright Minds Assistant. How can I help you today?';
+            } else if (input.includes('project')) {
+                return "Bright Minds is an AI-driven project providing free, personalized learning for kids with special needs.";
+            } else if (input.includes('games')) {
+                return "Our platform includes interactive games designed to make learning fun and engaging!";
+            } else if (input.includes('how are you')) {
+                return "I'm just a chatbot, but I'm here to help you! What would you like to know?";
+            } else if (input.includes('thanks') || input.includes('thank you')) {
+                return "You're welcome! Feel free to ask me anything else.";
             } else {
-                return "I'm not sure about that. Can you ask about courses?";
+                return "I'm not sure about that. Could you ask something about courses, games, or the project?";
             }
         }
     </script>

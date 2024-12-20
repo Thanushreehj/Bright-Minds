@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Course</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .header {
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 24px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            color: #4caf50;
+            margin-bottom: 10px;
+        }
+
+        .quiz {
+            margin-top: 20px;
+        }
+
+        .quiz-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .quiz-option {
+            display: block;
+            margin: 8px 0;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">English Course</div>
+    <div class="container">
+        <div class="section">
+            <h2>About the Course</h2>
+            <p>This English course is designed to help children build foundational skills in reading, writing, speaking, and listening. Engage in fun and interactive lessons to enhance your English proficiency.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Quiz: Test Your Knowledge</h2>
+            <div class="quiz">
+                <div class="quiz-question" id="question"></div>
+                <div id="options"></div>
+                <button id="submit-button" onclick="submitAnswer()">Submit Answer</button>
+                <div class="result" id="result"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "What is the plural of 'child'?",
+                options: ["Childs", "Children", "Childes", "Child"],
+                correct: 1,
+            },
+            {
+                question: "Which of the following is a noun?",
+                options: ["Run", "Beautiful", "Happiness", "Quickly"],
+                correct: 2,
+            },
+            {
+                question: "Choose the correct sentence:",
+                options: [
+                    "She are playing outside.",
+                    "She is play outside.",
+                    "She is playing outside.",
+                    "She are play outside."
+                ],
+                correct: 2,
+            },
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const questionDiv = document.getElementById("question");
+            const optionsDiv = document.getElementById("options");
+            const resultDiv = document.getElementById("result");
+            const submitButton = document.getElementById("submit-button");
+
+            resultDiv.textContent = "";
+            submitButton.style.display = "block";
+
+            const quiz = quizData[currentQuestion];
+
+            questionDiv.textContent = quiz.question;
+            optionsDiv.innerHTML = "";
+
+            quiz.options.forEach((option, index) => {
+                const radioInput = document.createElement("input");
+                radioInput.type = "radio";
+                radioInput.name = "quiz-option";
+                radioInput.id = `option-${index}`;
+                radioInput.value = index;
+
+                const label = document.createElement("label");
+                label.htmlFor = `option-${index}`;
+                label.textContent = option;
+
+                const optionContainer = document.createElement("div");
+                optionContainer.className = "quiz-option";
+                optionContainer.appendChild(radioInput);
+                optionContainer.appendChild(label);
+
+                optionsDiv.appendChild(optionContainer);
+            });
+        }
+
+        function submitAnswer() {
+            const resultDiv = document.getElementById("result");
+            const selectedOption = document.querySelector('input[name="quiz-option"]:checked');
+
+            if (!selectedOption) {
+                resultDiv.textContent = "Please select an option!";
+                resultDiv.className = "result incorrect";
+                return;
+            }
+
+            const quiz = quizData[currentQuestion];
+
+            if (parseInt(selectedOption.value) === quiz.correct) {
+                resultDiv.textContent = "Correct!";
+                resultDiv.className = "result correct";
+                score++;
+            } else {
+                resultDiv.textContent = `Incorrect! The correct answer is "${quiz.options[quiz.correct]}".`;
+                resultDiv.className = "result incorrect";
+            }
+
+            currentQuestion++;
+
+            if (currentQuestion < quizData.length) {
+                setTimeout(loadQuestion, 2000);
+            } else {
+                setTimeout(showFinalScore, 2000);
+            }
+        }
+
+        function showFinalScore() {
+            const questionDiv = document.getElementById("question");
+            const optionsDiv = document.getElementById("options");
+            const resultDiv = document.getElementById("result");
+            const submitButton = document.getElementById("submit-button");
+
+            questionDiv.textContent = "Quiz Completed!";
+            optionsDiv.innerHTML = "";
+            submitButton.style.display = "none";
+            resultDiv.textContent = `Your score is ${score} out of ${quizData.length}`;
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>

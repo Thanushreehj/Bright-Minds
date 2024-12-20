@@ -40,9 +40,9 @@ questionData.forEach((data, index) => {
 
     // Add input field for the answer
     let answerInput = document.createElement('input');
-     answerInput.placeholder =`Write your ans...`
+    answerInput.placeholder =`Write your ans...`
     answerInput.type = 'text';
-   
+
     answerInput.name = `question-${data.id}`;
     answerInput.dataset.answer = data.answer; // Store the correct answer for scoring
     questionDiv.appendChild(answerInput);

@@ -27,7 +27,7 @@ https://1drv.ms/u/c/f8096683dbb920c6/EYsZ_S3p6oVIk2wGIUlMc4kBGGIRubXrum6nL5g22Cj
 
 - **HTML5** – For semantic and structured content  
 - **CSS3** – For responsive and accessible styling  
-- **JavaScript (Vanilla)** – For basic interactivity  
+- **JavaScript** – For basic interactivity  
 
 ---
 
@@ -65,9 +65,9 @@ Bright-Minds/
    (https://1drv.ms/u/c/f8096683dbb920c6/Eb2z-eKQE6lEgqQ3pTA74ZwB35NX01gLM91FKzpHCU7ImQ?e=RR3nqo)
 
 ## 7. Author Details
--Name: Thanushree H J
--Education: B.Tech in Computer Science and Engineering 
--Interests: Accessible technology, UI/UX design, educational tools
+- Name: Thanushree H J
+- Education: B.Tech in Computer Science and Engineering 
+
 
 - Email: thanushreehj27@gmail.com
 - GitHub: https://github.com/Thanushreehj

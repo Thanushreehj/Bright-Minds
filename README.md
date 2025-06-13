@@ -36,7 +36,7 @@ https://1drv.ms/u/c/f8096683dbb920c6/EYsZ_S3p6oVIk2wGIUlMc4kBGGIRubXrum6nL5g22Cj
 ###  Run Locally:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Thanushreehj/Bright-Minds.git
+   git clone https://github.com/Thanushreehj/Bright-Minds
    cd Bright-Minds
 2. Open index.html in a web browser.
 

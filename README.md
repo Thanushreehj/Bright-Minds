@@ -4,13 +4,13 @@ A frontend-only, responsive educational website designed to support children (ag
 
 > This prototype focuses exclusively on the UI/UX and interactive lessons.
 
--- Purpose
+# Purpose
 To prototype an inclusive learning environment that shows how accessible content can be structured, with:
 - Modular subjects like Math, English, and General Knowledge
 - A supportive parents’ resources section
 - Attention to simplicity, clarity, and responsiveness for young users
 
---Project Structure
+# Project Structure
 Bright-Minds/
 ├── index.html           # Home/Landing page
 ├── about.html           # Project overview & mission
